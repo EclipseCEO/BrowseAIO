@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SocialView</title>
+  <style>
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: linear-gradient(to bottom right, #1b1b2f 30%, #2c1a34 100%);
+      font-family: Arial, sans-serif;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      height: 100vh;
+      overflow-x: hidden;
+      overflow-y: auto;
+      padding: 20px;
+    }
+
+    .top-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background-color: #141414;
+      border-bottom: 1px solid #fff;
+      padding: 10px 0;
+      text-align: center;
+      z-index: 1000;
+    }
+
+    .top-bar h1 {
+      color: #fff;
+      font-size: 1.2rem;
+    }
+
+    .content {
+      margin-top: 60px;
+      padding: 20px;
+      width: 100%;
+      max-width: 500px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .button-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 15px;
+      width: 100%;
+    }
+
+    .button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px;
+      background-color: #1e1e1e;
+      border-radius: 12px;
+      text-decoration: none;
+      color: #fff;
+      font-size: 0.9rem;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+      transition: transform 0.2s ease, background-color 0.3s ease, border 0.3s ease;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .button img {
+      width: 20px;
+      height: 20px;
+      margin-right: 10px;
+      object-fit: contain;
+    }
+
+    .button:hover {
+      transform: scale(1.05);
+      background-color: #0d0d0d;
+    }
+
+    .button.facebook:hover::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      border: 2px solid #3b5998;
+      border-radius: 12px;
+      animation: pulseFb 1.5s infinite ease-in-out;
+    }
+
+    .button.instagram:hover::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      border: 2px solid #e4405f;
+      border-radius: 12px;
+      animation: pulseIg 1.5s infinite ease-in-out;
+    }
+
+    .button.twitter:hover::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      border: 2px solid #1da1f2;
+      border-radius: 12px;
+      animation: pulseTt 1.5s infinite ease-in-out;
+    }
+
+    .button.whatsapp:hover::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      border: 2px solid #25d366;
+      border-radius: 12px;
+      animation: pulseWhatsapp 1.5s infinite ease-in-out;
+    }
+
+    .button.telegram:hover::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      border: 2px solid #0088cc;
+      border-radius: 12px;
+      animation: pulseTg 1.5s infinite ease-in-out;
+    }
+
+    .button.snapchat:hover::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      border: 2px solid #fffc00;
+      border-radius: 12px;
+      animation: pulseSnapchat 1.5s infinite ease-in-out;
+    }
+
+    .button.tiktok:hover::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      border: 2px solid #69c9d0;
+      border-radius: 12px;
+      animation: pulseTiktok 1.5s infinite ease-in-out;
+    }
+
+    .button.reddit:hover::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      border: 2px solid #ff4500;
+      border-radius: 12px;
+      animation: pulseReddit 1.5s infinite ease-in-out;
+    }
+
+    .button.pinterest:hover::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      border: 2px solid #e60023;
+      border-radius: 12px;
+      animation: pulsePinterest 1.5s infinite ease-in-out;
+    }
+
+    .button.discord:hover::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      border: 2px solid #7289da;
+      border-radius: 12px;
+      animation: pulseDiscord 1.5s infinite ease-in-out;
+    }
+
+    .button.youtube:hover::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      border: 2px solid #ff0000;
+      border-radius: 12px;
+      animation: pulseYoutube 1.5s infinite ease-in-out;
+    }
+      
+    .button.threads:hover::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      border: 2px solid #ffffff;
+      border-radius: 12px;
+      animation: pulseFb 1.5s infinite ease-in-out;
+    }
+
+    a:focus, button:focus, input:focus {
+      outline: none;
+      box-shadow: none;
+    }
+
+    *, *::before, *::after {
+      transition: all 0.3s ease;
+    }
+
+    @media screen and (max-width: 480px) {
+      .button {
+        padding: 10px;
+        font-size: 0.8rem;
+      }
+
+      .button img {
+        width: 16px;
+        height: 16px;
+      }
+
+      .top-bar h1 {
+        font-size: 1rem;
+      }
+
+      .button-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+  </style>
+</head>
+<body>
+
+  <div class="top-bar">
+    <h1>SocialView</h1>
+  </div>
+
+  <div class="content">
+    <div class="button-grid">
+      <a href="https://facebook.com" class="button facebook">
+        <img src="facebook.png" alt="Facebook">Facebook
+      </a>
+      <a href="https://instagram.com" class="button instagram">
+        <img src="instagram.png" alt="Instagram">Instagram
+      </a>
+      <a href="https://threads.net" class="button threads">
+        <img src="threads.png" alt="Threads">Threads
+      </a>
+      <a href="https://web.whatsapp.com" class="button whatsapp">
+        <img src="whatsapp.png" alt="WhatsApp">WhatsApp
+      </a>
+      <a href="https://telegram.org" class="button telegram">
+        <img src="telegram.png" alt="Telegram">Telegram
+      </a>
+      <a href="https://x.com" class="button twitter">
+        <img src="twitter.png" alt="Twitter">Twitter
+      </a>
+      <a href="https://web.snapchat.com" class="button snapchat">
+        <img src="snapchat.png" alt="Snapchat">Snapchat
+      </a>
+      <a href="https://tiktok.com" class="button tiktok">
+        <img src="tiktok.png" alt="TikTok">TikTok
+      </a>
+      <a href="https://reddit.com" class="button reddit">
+        <img src="reddit.png" alt="Reddit">Reddit
+      </a>
+      <a href="https://pinterest.com" class="button pinterest">
+        <img src="pinterest.png" alt="Pinterest">Pinterest
+      </a>
+      <a href="https://discord.com" class="button discord">
+        <img src="discord.png" alt="Discord">Discord
+      </a>
+      <a href="https://youtube.com" class="button youtube">
+        <img src="youtube.png" alt="YouTube">YouTube
+      </a>
+    </div>
+  </div>
+
+</body>
+</html>
