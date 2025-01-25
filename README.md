@@ -1,10 +1,38 @@
 ### About
-SocialView, is a leightweight Android APK, that allows You to access the web versions of Your favourite social media platforms.
+A simple WebView APK that has all of Your favourite social media, gaming and entertainment platforms in one place.
+<br>  
+**Platforms included:**  
+- Facebook
+- Messenger
+- Instagram
+- Threads
+- WhatsApp
+- Telegram
+- Twitter
+- SnapChat
+- TikTok
+- Reddit
+- Pinterest
+- Discord
+- YouTube
+- Vimeo
+- NewPipe
+- GitHub
+- Spotify
+- SoundCloud
+- Deezer
+- Netflix
+- Prime Video
+- CrunchyRoll
+- Hulu
+- PlayStation
+- Xbox
+- Nintendo
 
 ---
 
 ### Download
-Download [here](https://github.com/EclipseCEO/SocialView/releases/download/Universal-WebView/SocialView.apk) or in the releases section.
+Download [here](https://google.com/404) or in the releases section.
 
 ---
 
